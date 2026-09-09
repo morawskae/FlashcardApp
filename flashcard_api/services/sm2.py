@@ -1,12 +1,11 @@
-from flashcard_api.models import FcProgress
-from flashcard_api.models import Rating
+from flashcard_api.models import FcProgress, Rating
 import datetime
 from django.utils import timezone
 
 def sm2_algorithm(progress:FcProgress, rating:Rating):
 
     quality = rating[0]
-    
+
     new_easiness_factor:float = progress.ease_factor + (1.0 - (5 - quality)*(0.08 + (5-quality)*0.02))
     if(new_easiness_factor<1.3): new_easiness_factor = 1.3
 
