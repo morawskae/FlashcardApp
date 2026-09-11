@@ -2,7 +2,7 @@ from rest_framework import serializers
 from ..models import Deck
 
 
-class DeckListSeralizer(serializers.ModelSerializer):
+class DeckListSerializer(serializers.ModelSerializer):
     class Meta:
         model=Deck
         fields = [
