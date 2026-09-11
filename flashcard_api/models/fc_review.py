@@ -8,6 +8,6 @@ class Rating(models.IntegerChoices):
     EASY= 5, "Easy"
 
 class FcReview(models.Model):
-    reviewed_at = models.DateTimeField()
+    reviewed_at = models.DateTimeField(auto_now_add=True)
     rating = models.CharField(choices=Rating.choices)
     flashcard = models.ForeignKey(Flashcard, on_delete=models.CASCADE,related_name="reviews")
