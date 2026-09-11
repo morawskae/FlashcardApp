@@ -20,7 +20,7 @@ def sm2_algorithm(progress:FcProgress, rating:Rating):
         elif(progress.successful_repetitions==2):
             progress.interval = 6;
         else:
-            progress.interval = round(progress.interval*new_easiness_factor,2)
+            progress.interval = round(progress.interval*new_easiness_factor)
             
     progress.due_at = timezone.now() + datetime.timedelta(days = progress.interval)
     progress.ease_factor = new_easiness_factor
