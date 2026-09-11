@@ -3,7 +3,7 @@ from .flashcard import Flashcard
 
 class Progress(models.Model):
     due_at = models.DateField()
-    last_reviewed_at = models.DateTimeField()
+    last_reviewed_at = models.DateTimeField(null=True)
 
     successful_repetitions = models.PositiveIntegerField(default=0)
     ease_factor = models.FloatField(default=2.5)
