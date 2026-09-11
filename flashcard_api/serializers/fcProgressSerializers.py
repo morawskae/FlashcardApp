@@ -1,11 +1,10 @@
 from rest_framework import serializers
-from ..models import FcProgress
+from ..models import Progress
 
 
-#zastanow sie czy to wgl jest potrzebne
-class FcProgressReadSerializer(serializers.ModelSerializer):
+class ProgressReadSerializer(serializers.ModelSerializer):
     class Meta:
-        model = FcProgress
+        model = Progress
         fields = [
             "id",
             "flashcard",

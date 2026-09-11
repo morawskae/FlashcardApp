@@ -1,9 +1,9 @@
 from rest_framework import serializers
-from ..models import FcReview, Rating
+from ..models import Review, Rating
 
-class FcReviewReadSerializer(serializers.ModelSerializer):
+class ReviewReadSerializer(serializers.ModelSerializer):
     class Meta:
-        model = FcReview
+        model = Review
         fields = [
             "id",
             "flashcard",
@@ -13,5 +13,5 @@ class FcReviewReadSerializer(serializers.ModelSerializer):
 
 #for adding reviews
 class ReviewSubmitSerializer(serializers.ModelSerializer):
-    model = FcReview
+    model = Review
     rating = serializers.ChoiceField(choices=Rating.choices)

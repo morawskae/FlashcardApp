@@ -1,7 +1,7 @@
 from django.db import models 
 from .flashcard import Flashcard
 
-class FcProgress(models.Model):
+class Progress(models.Model):
     due_at = models.DateField()
     last_reviewed_at = models.DateTimeField()
 
