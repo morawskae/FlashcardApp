@@ -12,7 +12,7 @@ def sm2_algorithm(progress:Progress, rating:Rating) -> None:
 
     if(rating==Rating.AGAIN):
         progress.successful_repetitions = 0
-        progress.interval = 1
+        progress.interval = 0
     else: 
         progress.successful_repetitions+=1
 
