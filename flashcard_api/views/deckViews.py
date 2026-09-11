@@ -1,8 +1,9 @@
 from rest_framework import viewsets
 from ..models import Deck
-from ..serializers import DeckWriteSerializer, DeckListSerializer, DeckDetaliedSerializer
+from ..serializers import DeckWriteSerializer, DeckListSerializer, DeckDetaliedSerializer,FlashcardReadSerializer, FlashcardWriteSerializer
+from .deckFlashcardActions import DeckFlashcardActions
 
-class DeckViewSet(viewsets.ModelViewSet):
+class DeckViewSet(DeckFlashcardActions,viewsets.ModelViewSet):
     queryset = Deck.objects.all()
 
     def get_serializer_class(self):

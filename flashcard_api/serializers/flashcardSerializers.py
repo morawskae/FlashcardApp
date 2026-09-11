@@ -18,6 +18,8 @@ class FlashcardWriteSerializer(serializers.ModelSerializer):
         model = Flashcard
         fields = [
             "front_side",
-            "back_side"
+            "back_side",
+            "deck"
         ]
+        read_only_field=["deck"]
 
