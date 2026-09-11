@@ -2,7 +2,7 @@ from django.db import models
 from .flashcard import Flashcard
 
 class Progress(models.Model):
-    due_at = models.DateField()
+    due_at = models.DateTimeField()
     last_reviewed_at = models.DateTimeField(null=True)
 
     successful_repetitions = models.PositiveIntegerField(default=0)
