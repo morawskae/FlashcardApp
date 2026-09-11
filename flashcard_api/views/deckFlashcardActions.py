@@ -1,4 +1,4 @@
-from ..models import Flashcard
+from ..models import Flashcard, Progress
 from ..serializers import ( FlashcardWriteSerializer, FlashcardReadSerializer)
 from rest_framework.decorators import action
 from rest_framework.response import Response
@@ -17,6 +17,7 @@ class DeckFlashcardActions():
             serializer = FlashcardWriteSerializer(data=request.data)
             if serializer.is_valid():
                 flashcard = serializer.save(deck=deck)
+                Progress.objects.create_progress(flashcard = flashcard)
                 read_serializer = FlashcardReadSerializer(flashcard)
                 return Response(read_serializer.data, status = status.HTTP_201_CREATED)
             return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
