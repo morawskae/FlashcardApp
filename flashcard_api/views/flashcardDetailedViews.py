@@ -3,8 +3,9 @@ from rest_framework import status
 from ..models import Flashcard
 from ..serializers import FlashcardWriteSerializer, FlashcardReadSerializer
 from rest_framework.generics import RetrieveUpdateDestroyAPIView
+from flashcardReviewAction import FlashcardReviewAction
 
-class FlashcardDetailedAPIView(RetrieveUpdateDestroyAPIView):
+class FlashcardDetailedAPIView(FlashcardReviewAction,RetrieveUpdateDestroyAPIView):
     queryset = Flashcard.objects.all()
 
     def get_serializer_class(self):
