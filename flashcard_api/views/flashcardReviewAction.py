@@ -1,5 +1,4 @@
-from ..models import Flashcard,Rating, Progress
-from ..serializers import ( FlashcardWriteSerializer, FlashcardReadSerializer)
+from ..models import Rating, Progress
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework import status
