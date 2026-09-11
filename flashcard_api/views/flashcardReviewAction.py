@@ -1,20 +1,20 @@
-from ..models import Rating, Progress
-from rest_framework.decorators import action
+from ..models import Rating, Progress, Flashcard
 from rest_framework.response import Response
 from rest_framework import status
-from ..services import schleduler
+from ..services import sm2_scheduler
+from rest_framework.views import APIView
+from django.shortcuts import get_object_or_404
+class FlashcardReviewAction(APIView):
 
-class FlashcardReviewAction():
-    @action(detail=True, methods=["post"],url_path="review")
-    def review(self, request,pk=None):
-        flashcard = self.get_object()
+    def post(self, request,pk=None):
+        flashcard = get_object_or_404(Flashcard, pk=pk)
         rating = request.data.get("rating")
         if(rating is None):
             return Response({"detail":"Rating is required"},status=status.HTTP_400_BAD_REQUEST)
         try:
             rating = Rating(int(rating))
         except(ValueError, TypeError):
-            Response({"detail":"Invalid Rating"},status=status.HTTP_400_BAD_REQUEST)
+            return Response({"detail":"Invalid Rating"},status=status.HTTP_400_BAD_REQUEST)
         progress = Progress.objects.get(flashcard=flashcard)
-        schleduler(progress, rating)
+        sm2_scheduler(progress, rating)
         return Response({"detail":"Flashcard reviewed successfully"}, status=status.HTTP_200_OK)
