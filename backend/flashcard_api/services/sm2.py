@@ -6,9 +6,13 @@ def sm2_algorithm(progress:Progress, rating:Rating) -> None:
 
     quality = int(rating)
 
-    new_easiness_factor:float = progress.ease_factor + (1.0 - (5 - quality)*(0.08 + (5-quality)*0.02))
+    print(f"DEBUG{progress.ease_factor}")
+    print((0.1- (5 - quality)*(0.08 + (5-quality)*0.02)))
+
+    new_easiness_factor:float = round(progress.ease_factor + (0.1 - (5 - quality)*(0.08 + (5-quality)*0.02)),2)
     if new_easiness_factor<1.3:
         new_easiness_factor = 1.3
+    print(f"DEBUG:{new_easiness_factor}")
 
     if(rating==Rating.AGAIN):
         progress.successful_repetitions = 0
@@ -23,6 +27,7 @@ def sm2_algorithm(progress:Progress, rating:Rating) -> None:
         else:
             progress.interval = round(progress.interval*new_easiness_factor)
     now = timezone.now()
-    progress.due_at = now+ datetime.timedelta(days = progress.interval)
     progress.ease_factor = new_easiness_factor
     progress.last_reviewed_at = now 
+    progress.due_at = now+ datetime.timedelta(days = progress.interval)
+

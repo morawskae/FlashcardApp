@@ -1,4 +1,4 @@
-from deckSerializers import DeckDetaliedSerializer, DeckWriteSerializer, DeckListSerializer
-from flashcardSerializers import FlashcardReadSerializer, FlashcardWriteSerializer
-from progressSerializers import ProgressReadSerializer
-from reviewSerializers import ReviewSubmitSerializer, ReviewReadSerializer
+from .deckSerializers import DeckDetaliedSerializer, DeckWriteSerializer, DeckListSerializer
+from .flashcardSerializers import FlashcardReadSerializer, FlashcardWriteSerializer
+from .progressSerializers import ProgressReadSerializer
+from .reviewSerializers import ReviewSubmitSerializer, ReviewReadSerializer
