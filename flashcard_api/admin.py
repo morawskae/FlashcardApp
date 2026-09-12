@@ -6,4 +6,3 @@ admin.site.register(Flashcard)
 admin.site.register(Progress)
 admin.site.register(Review)
 
-#TO-DO: when creating a flashcard it should automatically get progress entry
