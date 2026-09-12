@@ -21,7 +21,6 @@ class FlashcardReviewAction(APIView):
         return Response({"detail":"Flashcard reviewed successfully"}, status=status.HTTP_200_OK)
 
     def get(self, request, pk=None):
-        print("DEBUG XD")
         flashcard = get_object_or_404(Flashcard, pk=pk)
         reviews = Review.objects.filter(flashcard=flashcard)
         serializer = ReviewReadSerializer(reviews, many=True)
