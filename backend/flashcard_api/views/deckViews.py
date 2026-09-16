@@ -1,11 +1,22 @@
 from rest_framework import viewsets
 from ..models import Deck
-from ..serializers import DeckWriteSerializer, DeckListSerializer, DeckDetaliedSerializer,FlashcardReadSerializer, FlashcardWriteSerializer
+from ..serializers import DeckWriteSerializer, DeckListSerializer, DeckDetaliedSerializer
 from .deckFlashcardActions import DeckFlashcardActions
 
+from rest_framework.permissions import IsAuthenticated
+from ..utils import accessible_decks
 class DeckViewSet(DeckFlashcardActions,viewsets.ModelViewSet):
-    queryset = Deck.objects.all()
 
+    def get_queryset(self):
+        return accessible_decks(self.request.user)
+
+    permission_classes = [
+        IsAuthenticated,
+    ]
+
+    def perform_create(self, serializer):
+        serializer.save(owner = self.request.user)
+    
     def get_serializer_class(self):
         if self.action  =="list":
             return DeckListSerializer

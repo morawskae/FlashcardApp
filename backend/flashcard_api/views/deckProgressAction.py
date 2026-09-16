@@ -1,15 +1,19 @@
-from ..models import Flashcard, Deck
+from ..models import Flashcard
 from rest_framework.response import Response
 from rest_framework import status
 from django.utils import timezone
 from ..serializers import FlashcardReadSerializer
 from rest_framework.views import APIView
 from django.shortcuts import get_object_or_404
+from rest_framework.permissions import IsAuthenticated
+from ..utils import accessible_decks
 
 class DeckProgressAction(APIView):
-    #@action(detail=True, methods=["Get"],url_path="flashcards/due")
+    permission_classes = [
+        IsAuthenticated,
+    ]
     def get(self, request,pk=None):
-        deck = get_object_or_404(Deck, pk=pk)
+        deck = get_object_or_404(accessible_decks(request.user), pk=pk)
         now = timezone.now()
 
         flashcards = Flashcard.objects.filter(deck=deck, progress__due_at__lte=now)

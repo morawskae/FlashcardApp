@@ -3,21 +3,25 @@ from ..models import Deck
 
 
 class DeckListSerializer(serializers.ModelSerializer):
+    owner = serializers.ReadOnlyField(source = "owner.username")
     class Meta:
         model=Deck
         fields = [
             "id",
-            "title"
+            "title",
+            "owner"
         ]
 
 class DeckDetaliedSerializer(serializers.ModelSerializer):
+    owner = serializers.ReadOnlyField(source = "owner.username")
     class Meta:
         model = Deck 
         fields = [
             "id",
             "title",
             "description",
-            "created_at"
+            "created_at",
+            "owner"
         ]
 
 class DeckWriteSerializer(serializers.ModelSerializer):

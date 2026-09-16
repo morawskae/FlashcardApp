@@ -3,11 +3,21 @@ from ..serializers import ( FlashcardWriteSerializer, FlashcardReadSerializer)
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.permissions import IsAuthenticated
+from django.shortcuts import get_object_or_404
+from ..utils import accessible_decks
+
 class DeckFlashcardActions():
+
+    permission_classes = [
+        IsAuthenticated,
+        
+    ]
     
     @action(detail = True, methods=["GET","POST"])
     def flashcards(self, request,pk=None):
-        deck = self.get_object()
+        deck = get_object_or_404(accessible_decks(request.user),pk=pk)
+
         if( request.method=="GET"):
             flashcards = Flashcard.objects.filter(deck = deck)
             serializer = FlashcardReadSerializer(flashcards, many=True)
