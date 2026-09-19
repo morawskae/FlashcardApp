@@ -2,3 +2,4 @@ from .deckSerializers import DeckDetaliedSerializer, DeckWriteSerializer, DeckLi
 from .flashcardSerializers import FlashcardReadSerializer, FlashcardWriteSerializer
 from .progressSerializers import ProgressReadSerializer
 from .reviewSerializers import ReviewSubmitSerializer, ReviewReadSerializer
+from .registerSerializer import RegisterSerializer
