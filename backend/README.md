@@ -91,6 +91,19 @@ Authorization: Token your-token
 ```
 
 You can use Postman or another API client to interact with the API.
+## Current Features
+* User registration and login
+* Token-based authentication
+* User-owned flashcard decks
+* Create, read, update, and delete decks
+* Create and manage flashcards within decks
+* Access control for decks and flashcards
+* Staff users can access all decks and flashcards
+* Track flashcard learning progress
+* Review flashcards using ratings
+* Spaced-repetition scheduling
+* Retrieve flashcards that are due for review
+* Retrieve review history for flashcards
 
 ## Roadmap
 
