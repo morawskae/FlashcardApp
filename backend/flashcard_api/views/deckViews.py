@@ -1,5 +1,4 @@
 from rest_framework import viewsets
-from ..models import Deck
 from ..serializers import DeckWriteSerializer, DeckListSerializer, DeckDetaliedSerializer
 from .deckFlashcardActions import DeckFlashcardActions
 

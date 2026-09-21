@@ -27,7 +27,7 @@ class DeckFlashcardActions():
             serializer = FlashcardWriteSerializer(data=request.data)
             if serializer.is_valid():
                 flashcard = serializer.save(deck=deck)
-                Progress.objects.create_progress(flashcard = flashcard)
+                #Progress.objects.create_progress(flashcard = flashcard, user=request.user)
                 read_serializer = FlashcardReadSerializer(flashcard)
                 return Response(read_serializer.data, status = status.HTTP_201_CREATED)
             return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)

@@ -1,4 +1,4 @@
-from ..models import Rating, Progress, Flashcard, Review
+from ..models import Rating, Progress, Review
 from rest_framework.response import Response
 from rest_framework import status
 from ..services import sm2_scheduler
@@ -22,13 +22,15 @@ class FlashcardReviewAction(APIView):
             rating = Rating(int(rating))
         except(ValueError, TypeError):
             return Response({"detail":"Invalid Rating"},status=status.HTTP_400_BAD_REQUEST)
-        progress = get_object_or_404(Progress,flashcard=flashcard)
-        sm2_scheduler(progress, rating)
+        progress, _ = Progress.objects.get_or_create(
+        flashcard=flashcard,
+        user=request.user)
+        sm2_scheduler(progress, rating, request.user)
         return Response({"detail":"Flashcard reviewed successfully"}, status=status.HTTP_200_OK)
 
     def get(self, request, pk=None):
         flashcard = get_object_or_404(accessible_flashcards(request.user), pk=pk)
-        reviews = Review.objects.filter(flashcard=flashcard)
+        reviews = Review.objects.filter(flashcard=flashcard, user=request.user)
         serializer = ReviewReadSerializer(reviews, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
