@@ -54,3 +54,6 @@ def learning_flashcards(user):
     if user.is_staff:
         return Flashcard.objects.all()
     return Flashcard.objects.filter(Q(deck__owner=user) | Q(deck__bookmarks__user=user)).distinct()
+
+def has_bookmarks(deck):
+    return deck.bookmarks.count()>0

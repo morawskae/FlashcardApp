@@ -2,13 +2,14 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views import (DeckViewSet, FlashcardDetailedAPIView, 
                     FlashcardReviewAction, DeckProgressAction, FlashcardProgressAction,
-                    DeckPublicAction, DeckBookmarkedAction)
+                    DeckPublicAction, BookmarkPostDelAction, BookmarkedDecksGetAction)
 from .views.auth import (RegisterApiView, LoginApiView, LogoutApiView )
 router = DefaultRouter()
 router.register(r'decks',DeckViewSet,basename='decks')
 urlpatterns = [
     path('decks/public/',DeckPublicAction.as_view(),name="decks-public"),
-    path('decks/bookmarked/',DeckBookmarkedAction.as_view(),name="decks-bookmarked"),
+        path('decks/bookmarked/',BookmarkedDecksGetAction.as_view(),name="decks-bookmarked"),
+    path('decks/<int:pk>/bookmarked/',BookmarkPostDelAction.as_view(),name="decks-bookmarked"),
     path('',include(router.urls)),
     path('flashcards/<int:pk>/',FlashcardDetailedAPIView.as_view(),name="flashcard-detail"),
     path('flashcards/<int:pk>/review/',FlashcardReviewAction.as_view(),name="flashcard-review"),
