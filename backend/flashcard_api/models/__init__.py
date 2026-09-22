@@ -3,3 +3,4 @@ from .flashcard import Flashcard
 from .progress import Progress
 from .review import Review
 from .review import Rating
+from .bookmark import Bookmark
