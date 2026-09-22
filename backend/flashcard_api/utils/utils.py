@@ -1,4 +1,4 @@
-from .models import Deck, Flashcard
+from ..models import Deck, Flashcard
 from django.db.models import Q
 
 def user_decks(user):
@@ -45,10 +45,6 @@ def accessible_flashcards(user):
         return Flashcard.objects.all()
     return Flashcard.objects.filter(Q(deck__is_public=True) | Q(deck__owner = user) )
 
-def bookmarked_flashcards(user):
-    if user.is_staff:
-        return Flashcard.objects.all()
-    return Flashcard.objects.filter(deck__bookmarks__user=user)
 
 def learning_flashcards(user):
     if user.is_staff:
@@ -57,3 +53,4 @@ def learning_flashcards(user):
 
 def has_bookmarks(deck):
     return deck.bookmarks.count()>0
+
