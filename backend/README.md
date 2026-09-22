@@ -131,7 +131,8 @@ Planned features include:
 
 | Method   | Endpoint           | Description                      |
 | -------- | ------------------ | -------------------------------- |
-| `GET`    | `/api/decks/`      | List the user's accessible decks |
+| `GET`    | `/api/decks/`      | List the user's  decks |
+| `GET`    | `/api/decks/public/`      | List of public decks |
 | `POST`   | `/api/decks/`      | Create a new deck                |
 | `GET`    | `/api/decks/<id>/` | Retrieve a deck                  |
 | `PUT`    | `/api/decks/<id>/` | Update a deck                    |
@@ -162,6 +163,15 @@ Planned features include:
 | ------ | ------------------------------ | -------------------------------------- |
 | `POST` | `/api/flashcards/<id>/review/` | Submit a review/rating for a flashcard |
 | `GET`  | `/api/flashcards/<id>/review/` | Get review history for a flashcard     |
+
+
+### Bookmarks 
+
+| Method | Endpoint                       | Description                            |
+| ------ | ------------------------------ | -------------------------------------- |
+| `GET` | `/api/decks/bookmarked/` | Get a list of bookmarked decks |
+| `POST`  | `/api/decks/<id>/bookmarked/` | Bookmark a deck    |
+| `DELETE`  | `/api/flashcards/<id>/review/` | Remove a deck from bookmarked   |
 
 Most endpoints require authentication using a DRF token.
 
