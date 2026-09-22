@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'flashcard_api',
-    'django_colors'
 ]
 
 MIDDLEWARE = [
