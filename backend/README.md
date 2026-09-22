@@ -111,10 +111,9 @@ Planned features include:
 
 * [X] Public/shared decks
 * [X] User-specific learning progress
-* [ ] Deck statistics and learning analytics
+* [X] Deck statistics and learning analytics
 * [ ] Tags and deck search/filtering
 * [X] Bookmarked decks
-* [ ] Review history
 * [ ] API tests and improved documentation
 
 ## API Description
@@ -132,12 +131,12 @@ Planned features include:
 | Method   | Endpoint           | Description                      |
 | -------- | ------------------ | -------------------------------- |
 | `GET`    | `/api/decks/`      | List the user's  decks |
-| `GET`    | `/api/decks/public/`      | List of public decks |
 | `POST`   | `/api/decks/`      | Create a new deck                |
 | `GET`    | `/api/decks/<id>/` | Retrieve a deck                  |
 | `PUT`    | `/api/decks/<id>/` | Update a deck                    |
 | `PATCH`  | `/api/decks/<id>/` | Partially update a deck          |
 | `DELETE` | `/api/decks/<id>/` | Delete a deck                    |
+| `GET`    | `/api/decks/public/`      | List of public decks |
 
 ### Flashcards
 
@@ -172,6 +171,19 @@ Planned features include:
 | `GET` | `/api/decks/bookmarked/` | Get a list of bookmarked decks |
 | `POST`  | `/api/decks/<id>/bookmarked/` | Bookmark a deck    |
 | `DELETE`  | `/api/flashcards/<id>/review/` | Remove a deck from bookmarked   |
+
+### Statistics
+| Method | Endpoint                       | Description                            |
+| ------ | ------------------------------ | -------------------------------------- |
+| `GET` | `/api/decks/<id>/stats/` | Returns learning statistics for the current user within the specified deck|
+
+Statistic include:
+* total, started, new and due flashcards
+* total reviews
+* reviews and cards reviewed today
+* average ease factor
+* last review time.
+
 
 Most endpoints require authentication using a DRF token.
 
