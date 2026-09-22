@@ -109,11 +109,11 @@ You can use Postman or another API client to interact with the API.
 
 Planned features include:
 
-* [ ] Public/shared decks
-* [ ] User-specific learning progress
+* [X] Public/shared decks
+* [X] User-specific learning progress
 * [ ] Deck statistics and learning analytics
 * [ ] Tags and deck search/filtering
-* [ ] Favorite/bookmarked decks
+* [X] Bookmarked decks
 * [ ] Review history
 * [ ] API tests and improved documentation
 
