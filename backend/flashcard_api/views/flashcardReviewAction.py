@@ -6,7 +6,7 @@ from rest_framework.views import APIView
 from django.shortcuts import get_object_or_404
 from ..serializers import ReviewReadSerializer
 from rest_framework.permissions import IsAuthenticated
-from ..utils import user_flashcards   
+from ..utils import learning_flashcards 
 
 class FlashcardReviewAction(APIView):
 
@@ -14,7 +14,7 @@ class FlashcardReviewAction(APIView):
         IsAuthenticated]
 
     def post(self, request,pk=None):
-        flashcard = get_object_or_404(user_flashcards(request.user), pk=pk)
+        flashcard = get_object_or_404(learning_flashcards(request.user), pk=pk)
         rating = request.data.get("rating")
         if(rating is None):
             return Response({"detail":"Rating is required"},status=status.HTTP_400_BAD_REQUEST)
@@ -29,7 +29,7 @@ class FlashcardReviewAction(APIView):
         return Response({"detail":"Flashcard reviewed successfully"}, status=status.HTTP_200_OK)
 
     def get(self, request, pk=None):
-        flashcard = get_object_or_404(user_flashcards(request.user), pk=pk) 
+        flashcard = get_object_or_404(learning_flashcards(request.user), pk=pk)
         reviews = Review.objects.filter(flashcard=flashcard, user=request.user)
         serializer = ReviewReadSerializer(reviews, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
