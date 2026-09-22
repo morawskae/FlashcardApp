@@ -5,3 +5,4 @@ from .deckViews import DeckViewSet
 from .flashcardDetailedViews import FlashcardDetailedAPIView
 from .flashcardProgressAction import FlashcardProgressAction
 from .deckPublicAction import DeckPublicAction
+from .deckBookmarkedAction import DeckBookmarkedAction
