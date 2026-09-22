@@ -4,3 +4,6 @@ from .deckProgressAction import DeckProgressAction
 from .deckViews import DeckViewSet
 from .flashcardDetailedViews import FlashcardDetailedAPIView
 from .flashcardProgressAction import FlashcardProgressAction
+from .deckPublicAction import DeckPublicAction
+from .deckBookmarkedAction import BookmarkedDecksGetAction, BookmarkPostDelAction
+from .deckStatsAction import DeckStatsAction
