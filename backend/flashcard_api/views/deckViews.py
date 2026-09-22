@@ -3,11 +3,17 @@ from ..serializers import DeckWriteSerializer, DeckListSerializer, DeckDetaliedS
 from .deckFlashcardActions import DeckFlashcardActions
 
 from rest_framework.permissions import IsAuthenticated
-from ..utils import accessible_decks
+from ..utils import user_decks, accessible_decks
+from django.shortcuts import get_object_or_404
+from rest_framework.response import Response
+from rest_framework import status
+
 class DeckViewSet(DeckFlashcardActions,viewsets.ModelViewSet):
 
     def get_queryset(self):
-        return accessible_decks(self.request.user)
+        if self.action in ["retrieve"]:
+            return accessible_decks(self.request.user)
+        return user_decks(self.request.user)
 
     permission_classes = [
         IsAuthenticated,

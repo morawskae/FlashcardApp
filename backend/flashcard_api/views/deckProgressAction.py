@@ -6,14 +6,14 @@ from ..serializers import FlashcardReadSerializer
 from rest_framework.views import APIView
 from django.shortcuts import get_object_or_404
 from rest_framework.permissions import IsAuthenticated
-from ..utils import accessible_decks
+from ..utils import user_decks
 
 class DeckProgressAction(APIView):
     permission_classes = [
         IsAuthenticated,
     ]
     def get(self, request,pk=None):
-        deck = get_object_or_404(accessible_decks(request.user), pk=pk)
+        deck = get_object_or_404(user_decks(request.user), pk=pk) #include bookmarked decks in the future
         now = timezone.now()
 
         flashcards = Flashcard.objects.filter(deck=deck, progress__due_at__lte=now)

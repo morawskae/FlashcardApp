@@ -21,6 +21,7 @@ class DeckDetaliedSerializer(serializers.ModelSerializer):
             "title",
             "description",
             "created_at",
+            "is_public",
             "owner"
         ]
 
@@ -29,6 +30,7 @@ class DeckWriteSerializer(serializers.ModelSerializer):
         model = Deck
         fields = [
             "title",
-            "description"
+            "description",
+            "is_public"
         ]
 
