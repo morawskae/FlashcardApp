@@ -8,7 +8,7 @@ router = DefaultRouter()
 router.register(r'decks',DeckViewSet,basename='decks')
 urlpatterns = [
     path('decks/public/',DeckPublicAction.as_view(),name="decks-public"),
-        path('decks/bookmarked/',BookmarkedDecksGetAction.as_view(),name="decks-bookmarked"),
+    path('decks/bookmarked/',BookmarkedDecksGetAction.as_view(),name="decks-bookmarked"),
     path('decks/<int:pk>/bookmarked/',BookmarkPostDelAction.as_view(),name="decks-bookmarked"),
     path('',include(router.urls)),
     path('flashcards/<int:pk>/',FlashcardDetailedAPIView.as_view(),name="flashcard-detail"),
