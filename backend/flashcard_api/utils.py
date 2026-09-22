@@ -17,6 +17,12 @@ def accessible_decks(user):
         return Deck.objects.all()
     return Deck.objects.filter(Q(is_public = True) | Q(owner=user))
 
+def bookmarked_decks(user):
+    if user.is_staff:
+        return Deck.objects.all()
+    return Deck.objects.filter(bookmarks__user=user)
+
+
 def user_flashcards(user):
     if user.is_staff:
         return Flashcard.objects.all()
@@ -34,3 +40,8 @@ def accessible_flashcards(user):
     if user.is_staff:
         return Flashcard.objects.all()
     return Flashcard.objects.filter(Q(deck__is_public=True) | Q(deck__owner = user) )
+
+def bookmarked_flashcards(user):
+    if user.is_staff:
+        return Flashcard.objects.all()
+    return Flashcard.objects.filter(deck__bookmarks__user=user)
