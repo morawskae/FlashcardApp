@@ -1,4 +1,4 @@
-from ..models import Flashcard, Progress
+from ..models import Flashcard
 from ..serializers import ( FlashcardWriteSerializer, FlashcardReadSerializer)
 from rest_framework.decorators import action
 from rest_framework.response import Response
