@@ -17,3 +17,5 @@ class TagWriteSerializer(serializers.ModelSerializer):
             "title",
             "color"
         ]
+    def validate_title(self,value):
+        return value.capitalize()
