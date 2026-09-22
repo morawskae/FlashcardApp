@@ -4,7 +4,7 @@ from django.db.models.functions import Lower
 from django.core.validators import RegexValidator
 
 class TagManager(models.Manager):
-    def create_tag(self, title,color, user,):
+    def create_tag(self, title,color, user):
         tag = self.create(user=user, color=color,title=title)
         return tag
 
