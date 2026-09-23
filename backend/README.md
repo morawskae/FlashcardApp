@@ -112,7 +112,7 @@ Planned features include:
 * [X] Public/shared decks
 * [X] User-specific learning progress
 * [X] Deck statistics and learning analytics
-* [ ] Tags and deck search/filtering
+* [X] Tags and deck search/filtering
 * [X] Bookmarked decks
 * [ ] API tests and improved documentation
 
@@ -136,7 +136,6 @@ Planned features include:
 | `PUT`    | `/api/decks/<id>/` | Update a deck                    |
 | `PATCH`  | `/api/decks/<id>/` | Partially update a deck          |
 | `DELETE` | `/api/decks/<id>/` | Delete a deck                    |
-| `GET`    | `/api/decks/public/`      | List of public decks |
 
 ### Flashcards
 
@@ -197,6 +196,28 @@ Statistic include:
 | `GET`    | `/api/decks/<id>/tags/`      | List tags in a deck |
 | `POST`    | `/api/decks/<deck_id>/tags/<tag_id>`      | Add available tag to a deck |
 | `GET`    | `/api/decks/<deck_id>/tags/<tag_id>`      | Remove tag from a deck |
+
+### Deck search and filtering
+
+The public decks endpoint supports searching by deck title and filtering by multiple tags.
+
+| Method | Endpoint | Description |
+| ------ | -------- | ----------- |
+| GET | `/api/decks/public/` | List all public decks |
+| GET | `/api/decks/public/?search=python` | Search decks by title |
+| GET | `/api/decks/public/?tag=programming` | Filter decks by tag |
+| GET | `/api/decks/public/?tag=programming&tag=python` | Filter decks by multiple tags |
+| GET | `/api/decks/public/?search=python&tag=programming&tag=backend` | Search by title and filter by multiple tags |
+
+Multiple tags are combined using **AND** logic. A deck must contain all requested tags to be included in the results.
+
+Search is case-insensitive and matches any part of the deck title.
+
+Example:
+
+`GET /api/decks/public/?search=django&tag=programming&tag=backend`
+
+Returns public decks whose title contains `django` and which have both `Programming` and `Backend` tags.
 
 
 Most endpoints require authentication using a DRF token.
