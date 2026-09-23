@@ -1,12 +1,12 @@
-from ..models import Rating, Progress, Review
+from ...models import Rating, Progress, Review
 from rest_framework.response import Response
 from rest_framework import status
-from ..services import sm2_scheduler
+from ...services import sm2_scheduler
 from rest_framework.views import APIView
 from django.shortcuts import get_object_or_404
-from ..serializers import ReviewReadSerializer
+from ...serializers import ReviewReadSerializer
 from rest_framework.permissions import IsAuthenticated
-from ..utils import learning_flashcards 
+from ...utils import learning_flashcards 
 
 class FlashcardReviewAction(APIView):
 

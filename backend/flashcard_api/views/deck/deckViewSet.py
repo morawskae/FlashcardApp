@@ -1,8 +1,8 @@
 from rest_framework import viewsets
-from ..serializers import DeckWriteSerializer, DeckListSerializer, DeckDetaliedSerializer
+from ...serializers import DeckWriteSerializer, DeckListSerializer, DeckDetaliedSerializer
 from .deckFlashcardActions import DeckFlashcardActions
 from rest_framework.permissions import IsAuthenticated
-from ..utils import user_decks, accessible_decks, has_bookmarks
+from ...utils import user_decks, accessible_decks, has_bookmarks
 from rest_framework.response import Response
 from rest_framework import status
 

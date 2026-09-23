@@ -1,12 +1,12 @@
-from ..models import Flashcard
+from ...models import Flashcard
 from rest_framework.response import Response
 from rest_framework import status
 from django.utils import timezone
-from ..serializers import FlashcardReadSerializer
+from ...serializers import FlashcardReadSerializer
 from rest_framework.views import APIView
 from django.shortcuts import get_object_or_404
 from rest_framework.permissions import IsAuthenticated
-from ..utils import learning_decks
+from ...utils import learning_decks
 
 class DeckProgressAction(APIView):
     permission_classes = [

@@ -1,7 +1,7 @@
-from ..serializers import FlashcardWriteSerializer, FlashcardReadSerializer
+from ...serializers import FlashcardWriteSerializer, FlashcardReadSerializer
 from rest_framework.generics import RetrieveUpdateDestroyAPIView
 from rest_framework.permissions import IsAuthenticated
-from ..utils import user_flashcards, accessible_flashcards
+from ...utils import user_flashcards, accessible_flashcards
 
 class FlashcardDetailedAPIView(RetrieveUpdateDestroyAPIView):
 
