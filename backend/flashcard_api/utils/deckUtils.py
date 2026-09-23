@@ -28,6 +28,13 @@ def learning_decks(user):
 
     return Deck.objects.filter(Q(owner=user) | Q(bookmarks__user=user)).distinct()
 
-
 def has_bookmarks(deck):
     return deck.bookmarks.count()>0
+
+def filter_decks(decks, search=None, tags=None):
+    if search:
+        decks = decks.filter(title__icontains=search)
+    if tags:
+        for tag in tags:
+            decks = decks.filter(tags__id=tag)
+    return decks.distinct()
