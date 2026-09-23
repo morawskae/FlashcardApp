@@ -3,3 +3,4 @@ from .flashcardSerializers import FlashcardReadSerializer, FlashcardWriteSeriali
 from .progressSerializers import ProgressReadSerializer
 from .reviewSerializers import ReviewSubmitSerializer, ReviewReadSerializer
 from .registerSerializer import RegisterSerializer
+from .tagSerializers import TagWriteSerializer, TagReadSerializer
