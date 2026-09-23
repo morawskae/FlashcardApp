@@ -194,6 +194,10 @@ Statistic include:
 | `PUT`   | `/api/tags/<id>/`          | Update a tag                     |
 | `PATCH` | `/api/tags/<id>/`          | Partially update a tag           |
 | `DELETE`| `/api/tags/<id>/`          | Delete a tag                     |
+| `GET`    | `/api/decks/<id>/tags/`      | List tags in a deck |
+| `POST`    | `/api/decks/<deck_id>/tags/<tag_id>`      | Add available tag to a deck |
+| `GET`    | `/api/decks/<deck_id>/tags/<tag_id>`      | Remove tag from a deck |
+
 
 Most endpoints require authentication using a DRF token.
 
