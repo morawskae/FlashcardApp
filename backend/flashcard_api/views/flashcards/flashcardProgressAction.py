@@ -1,11 +1,11 @@
 from rest_framework.views import APIView
-from ..models import Progress
+from ...models import Progress
 from django.shortcuts import get_object_or_404
-from ..serializers import ProgressReadSerializer
+from ...serializers import ProgressReadSerializer
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
-from ..utils import learning_flashcards
+from ...utils import learning_flashcards
 
 class FlashcardProgressAction(APIView):
         

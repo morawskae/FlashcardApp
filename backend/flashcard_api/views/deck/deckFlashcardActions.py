@@ -1,11 +1,11 @@
-from ..models import Flashcard
-from ..serializers import ( FlashcardWriteSerializer, FlashcardReadSerializer)
+from ...models import Flashcard
+from ...serializers import ( FlashcardWriteSerializer, FlashcardReadSerializer)
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import get_object_or_404
-from ..utils import accessible_decks, user_decks
+from ...utils import accessible_decks, user_decks
 
 class DeckFlashcardActions():
 
