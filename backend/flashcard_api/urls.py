@@ -3,10 +3,11 @@ from rest_framework.routers import DefaultRouter
 from .views import (DeckViewSet, FlashcardDetailedAPIView, 
                     FlashcardReviewAction, DeckProgressAction, FlashcardProgressAction,
                     DeckPublicAction, BookmarkPostDelAction, BookmarkedDecksGetAction,
-                    DeckStatsAction)
+                    DeckStatsAction, TagViewSet)
 from .views.auth import (RegisterApiView, LoginApiView, LogoutApiView )
 router = DefaultRouter()
 router.register(r'decks',DeckViewSet,basename='decks')
+router.register(r'tags',TagViewSet,basename='tags')
 urlpatterns = [
     path('decks/public/',DeckPublicAction.as_view(),name="decks-public"),
     path('decks/bookmarked/',BookmarkedDecksGetAction.as_view(),name="decks-bookmarked"),
