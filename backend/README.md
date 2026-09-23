@@ -184,6 +184,16 @@ Statistic include:
 * average ease factor
 * last review time.
 
+### Tags
+
+| Method  | Endpoint                  | Description                     |
+| ------- | ------------------------- | ------------------------------- |
+| `GET`   | `/api/tags/`              | List of available tags           |
+| `POST`  | `/api/tags/`              | Create a tag                     |
+| `GET`   | `/api/tags/<id>/`          | Retrieve an available tag        |
+| `PUT`   | `/api/tags/<id>/`          | Update a tag                     |
+| `PATCH` | `/api/tags/<id>/`          | Partially update a tag           |
+| `DELETE`| `/api/tags/<id>/`          | Delete a tag                     |
 
 Most endpoints require authentication using a DRF token.
 
