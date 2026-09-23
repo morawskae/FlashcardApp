@@ -101,7 +101,7 @@ You can use Postman or another API client to interact with the API.
 * Staff users can access all decks and flashcards
 * Track flashcard learning progress
 * Review flashcards using ratings
-* Spaced-repetition scheduling
+* Spaced-repetition scheduling using SM2 algorithm
 * Retrieve flashcards that are due for review
 * Retrieve review history for flashcards
 
