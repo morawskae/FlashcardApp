@@ -1,19 +1,23 @@
 from rest_framework import serializers
 from ..models import Deck
+from .tagSerializers import TagReadSerializer
 
 
 class DeckListSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source = "owner.username")
+    tags = TagReadSerializer(many=True, read_only=True)
     class Meta:
         model=Deck
         fields = [
             "id",
             "title",
-            "owner"
+            "owner",
+            "tags"
         ]
 
 class DeckDetaliedSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source = "owner.username")
+    tags = TagReadSerializer(many=True, read_only=True)
     class Meta:
         model = Deck 
         fields = [
@@ -22,7 +26,8 @@ class DeckDetaliedSerializer(serializers.ModelSerializer):
             "description",
             "created_at",
             "is_public",
-            "owner"
+            "owner",
+            "tags"
         ]
 
 class DeckWriteSerializer(serializers.ModelSerializer):

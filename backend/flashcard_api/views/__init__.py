@@ -8,4 +8,4 @@ from .deck.deckPublicAction import DeckPublicAction
 from .deck.deckBookmarkedAction import BookmarkedDecksGetAction, BookmarkPostDelAction
 from .deck.deckStatsAction import DeckStatsAction
 from .tagViewSet import TagViewSet
-
+from .deck.deckTagAction import DeckTagPostDelAction, DeckTagGetAction
