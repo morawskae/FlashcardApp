@@ -133,6 +133,7 @@ Planned features include:
 * [X] Tags and deck search/filtering
 * [X] Bookmarked decks
 * [ ] API tests and improved documentation
+* [ ] Pagination
 
 ## API Description
 
@@ -187,7 +188,7 @@ Planned features include:
 | ------ | ------------------------------ | -------------------------------------- |
 | `GET` | `/api/decks/bookmarked/` | Get a list of bookmarked decks |
 | `POST`  | `/api/decks/<id>/bookmarked/` | Bookmark a deck    |
-| `DELETE`  | `/api/flashcards/<id>/review/` | Remove a deck from bookmarked   |
+| `DELETE`  | `/api/decks/<id>/bookmarked/` | Remove a deck from bookmarked   |
 
 ### Statistics
 | Method | Endpoint                       | Description                            |
