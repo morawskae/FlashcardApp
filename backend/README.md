@@ -1,6 +1,7 @@
 # Flashcard API
+A REST API for a flashcard application built with Django REST Framework. Users can create and manage flashcard decks, add flashcards, track individual learning progress, review cards using a spaced-repetition system, and analyze their learning activity.
 
-A REST API for a flashcard application built with Django REST Framework. Users can create decks, add flashcards, track learning progress, and review flashcards using a spaced-repetition system.
+The API also supports public/shared decks, bookmarks, tags, deck search and filtering, and deck-level learning statistics. Learning progress is user-specific, allowing each user to maintain their own review history and spaced-repetition schedule for flashcards.
 
 ## Built With
 
@@ -99,11 +100,28 @@ You can use Postman or another API client to interact with the API.
 * Create and manage flashcards within decks
 * Access control for decks and flashcards
 * Staff users can access all decks and flashcards
-* Track flashcard learning progress
+* Public/shared flashcard decks
+* User-specific learning progress
+* Track flashcard learning progress and review history
 * Review flashcards using ratings
-* Spaced-repetition scheduling using SM2 algorithm
+* Spaced-repetition scheduling using the SM-2 algorithm
 * Retrieve flashcards that are due for review
 * Retrieve review history for flashcards
+* Deck statistics and learning analytics
+* Statistics for total, started, new, and due flashcards
+* Statistics for reviews and cards reviewed today
+* Average ease-factor and last-review information
+* Tags for organizing decks
+* Create, update, delete, and manage tags
+* Add tags to decks
+* Search public decks by title
+* Filter public decks by one or multiple tags
+* Combine deck title search with multiple tag filters
+* Case-insensitive deck searching
+* Bookmark public decks
+* Retrieve a user's bookmarked decks
+* Add and remove deck bookmarks
+* API endpoints for authentication, decks, flashcards, learning progress, reviews, bookmarks, statistics, tags, search, and filtering
 
 ## Roadmap
 
